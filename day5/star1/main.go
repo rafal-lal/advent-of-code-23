@@ -53,7 +53,7 @@ func main() {
 		for _, outerVal := range data {
 			currentVal := -1
 			for _, val := range outerVal {
-				if lastVal >= val[1] && lastVal <= (val[1]+val[2]) {
+				if lastVal >= val[1] && lastVal < (val[1]+val[2]) {
 					currentVal = lastVal + (val[0] - val[1])
 				}
 			}
