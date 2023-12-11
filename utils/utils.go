@@ -31,6 +31,15 @@ func SumSlice[T constraints.Ordered](slice []T) T {
 	return sum
 }
 
+func Map2[T, U any](data []T, f func(T) U) []U {
+    res := make([]U, 0, len(data))
+    for _, e := range data {
+        res = append(res, f(e))
+    }
+
+    return res
+}
+
 func StringInSlice(str string, stringSlice []string) bool {
 	for _, val := range stringSlice {
 		if val == str {
