@@ -31,13 +31,22 @@ func SumSlice[T constraints.Ordered](slice []T) T {
 	return sum
 }
 
-func Map2[T, U any](data []T, f func(T) U) []U {
-    res := make([]U, 0, len(data))
-    for _, e := range data {
-        res = append(res, f(e))
-    }
+func RemoveOrdered[T any](slice []T, idx int) []T {
+	return append(slice[:idx], slice[idx+1:]...)
+}
 
-    return res
+func RemoveUnordered[T any](slice []T, idx int) []T {
+	slice[idx] = slice[len(slice)-1]
+	return slice[:len(slice)-1]
+}
+
+func Map2[T, U any](data []T, f func(T) U) []U {
+	res := make([]U, 0, len(data))
+	for _, e := range data {
+		res = append(res, f(e))
+	}
+
+	return res
 }
 
 func StringInSlice(str string, stringSlice []string) bool {
