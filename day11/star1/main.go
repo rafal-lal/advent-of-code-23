@@ -1,7 +1,6 @@
 package main
 
 import (
-	// "fmt"
 	"fmt"
 	"math"
 
@@ -89,7 +88,7 @@ func main() {
 			occ++
 		}
 	}
-
+	println(occ)
 	fmt.Printf("Sum of distances %d\n", sum)
 }
 
