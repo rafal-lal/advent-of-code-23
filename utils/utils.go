@@ -32,6 +32,9 @@ func SumSlice[T constraints.Ordered](slice []T) T {
 }
 
 func RemoveOrdered[T any](slice []T, idx int) []T {
+	if idx == len(slice)-1 {
+		return slice[:idx]
+	}
 	return append(slice[:idx], slice[idx+1:]...)
 }
 
