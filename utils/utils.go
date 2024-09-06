@@ -61,3 +61,17 @@ func StringInSlice(str string, stringSlice []string) bool {
 
 	return false
 }
+
+func MinInSlice[T constraints.Ordered](data []T) T {
+	var min T
+	for i, val := range data {
+		if i == 0 {
+			min = val
+		}
+		if val < min {
+			min = val
+		}
+	}
+
+	return min
+}
